@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f8f9fa">
+    <title>HITESH PANIGRAHI // PORTFOLIO</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Audiowide&family=Chakra+Petch:wght@400;600;700&family=Doto:wght@800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@600;700&family=Syncopate:wght@700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/site.css">
+</head>
+
+<body>
+
+    <!-- Mobile Nav Overlay -->
+    <div class="mobile-nav-overlay" id="mobileNavOverlay" aria-hidden="true">
+        <div class="mobile-nav-top">
+            <div class="brand-logo">HP</div>
+            <button class="mobile-nav-close" id="mobileNavClose" aria-label="Close navigation">&#10005;</button>
+        </div>
+        <nav class="mobile-nav-links" aria-label="Mobile">
+            <a href="#home" class="mobile-nav-link"><span class="nav-idx">01</span>HOME</a>
+            <a href="#about" class="mobile-nav-link"><span class="nav-idx">02</span>ABOUT</a>
+            <a href="#skills" class="mobile-nav-link"><span class="nav-idx">03</span>SKILLS</a>
+            <a href="#projects" class="mobile-nav-link"><span class="nav-idx">04</span>PROJECTS</a>
+            <a href="#contact" class="mobile-nav-link"><span class="nav-idx">05</span>CONTACT</a>
+        </nav>
+        <div class="mobile-nav-foot">
+            <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hitesh.edu9%40gmail.com" target="_blank"
+                rel="noopener noreferrer">hitesh.edu9@gmail.com &#8599;</a>
+            <span>Small circuits. Big possibilities.</span>
+        </div>
+    </div>
+
+    <!-- ================= KINETIC HUD PRELOADER ================= -->
+    <div id="sitePreloader">
+        <div class="loader-top-bar">
+            <div class="glitch-portfolio">PORTFOLIO // 2026</div>
+            <div class="loader-top-status"><span class="status-dot"></span><span>SYS // BOOTING</span></div>
+        </div>
+        <div class="loader-center-wrap"><video id="loaderVideo" autoplay loop muted playsinline preload="auto">
+                <source src="loading-video.mp4" type="video/mp4">
+            </video></div>
+        <div class="loader-bottom-bar">
+            <div class="loader-init-wrap">
+                <div class="hazard-marks"><span></span><span></span><span></span><span></span><span></span></div>
+                <div class="loader-meta-label">INITIALIZING HARDWARE<br>PLEASE STAND BY</div>
+            </div>
+            <div class="loader-counter-block"><span class="loader-counter-tag">[ LOAD_INDEX ]</span>
+                <div class="loader-counter-number" id="loaderCounterNumber">01</div>
+                <div class="loader-counter-underline"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- BACKGROUND TYPOGRAPHY STAGE -->
+    <div id="backgroundTypographyStage">
+        <div class="typography-bounds">
+            <div class="hero-bg-typography" id="heroTypography" aria-label="HITESH PANIGRAHI">
+                <div class="hero-row-wrap">
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.00">H</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.05">I</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.10">T</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.15">E</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.20">S</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.25">H</span></span>
+                </div>
+                <div class="hero-row-wrap">
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.28">P</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.33">A</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.38">N</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.43">I</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.48">G</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.53">R</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.58">A</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.63">H</span></span>
+                    <span class="hero-char-mask"><span class="hero-char-glyph" data-base-delay="0.68">I</span></span>
+                    <span class="square-dot" id="heroDot" data-base-delay="0.74"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CANVAS STAGE -->
+    <div id="canvasStage">
+        <div class="canvas-viewport"><canvas id="sequenceCanvas"></canvas></div>
+    </div>
+
+    <!-- FOREGROUND CONTENT -->
+    <div class="site-content">
+
+        <header>
+            <div class="brand-col">
+                <div class="brand-logo">HP</div>
+                <div class="brand-subtext">Electronics / Automation / Ideas<br>Build Learn Create Repeat</div>
+            </div>
+
+            <div class="header-controls">
+                <nav class="desktop-nav">
+                    <ul>
+                        <li><a href="#home" class="active">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+
+            <div class="header-tagline">Small circuits.<br>Big possibilities.<span class="dash">—</span></div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Open navigation" aria-expanded="false"
+                aria-controls="mobileNavOverlay">☰</button>
+        </header>
+
+        <!-- SECTION 01: HERO -->
+        <div class="hero-stage" id="heroStage">
+            <div class="hero-sticky" id="heroSticky">
+                <section id="home" class="hero-section">
+                    <div class="extreme-right-scroll-indicator">
+                        <svg class="down-chevron-svg c-arrow-1" viewBox="0 0 24 14">
+                            <path class="chevron-path" d="M2 2 L12 11 L22 2" />
+                        </svg>
+                        <svg class="down-chevron-svg c-arrow-2" viewBox="0 0 24 14">
+                            <path class="chevron-path" d="M2 2 L12 11 L22 2" />
+                        </svg>
+                        <svg class="down-chevron-svg c-arrow-3" viewBox="0 0 24 14">
+                            <path class="chevron-path" d="M2 2 L12 11 L22 2" />
+                        </svg>
+                        <svg class="down-chevron-svg c-arrow-4" viewBox="0 0 24 14">
+                            <path class="chevron-path" d="M2 2 L12 11 L22 2" />
+                        </svg>
+                        <svg class="down-chevron-svg c-arrow-5" viewBox="0 0 24 14">
+                            <path class="chevron-path" d="M2 2 L12 11 L22 2" />
+                        </svg>
+                    </div>
+
+                    <div class="foreground-hud">
+                        <div class="hud-block-top-right">
+                            <div class="hud-tag-num">[ 01 ]</div>
+                            <div class="hud-tag-details">Ideas<br>Automation<br>Real Impact<br>—</div>
+                        </div>
+                        <div class="hud-block-left">
+                            <h2 class="left-heading" data-scramble="I BUILD THINGS THAT MAKE IDEAS REAL.">I BUILD
+                                THINGS<br>THAT MAKE<br>IDEAS REAL.</h2>
+                            <div class="left-bar"></div>
+                            <p class="left-desc">Electronics. Automation.<br>Prototyping. Real world solutions.</p>
+                            <a href="#projects" class="btn-projects"><span>VIEW PROJECTS</span><span
+                                    class="arrow">↗</span></a>
+                        </div>
+                        <div class="hud-block-right">
+                            <div class="coordinate-reticle"></div>
+                            <div class="right-quote">Turn<br>Ideas<br>Into <br>Reality</div>
+                            <div class="counter-number">01</div>
+                            <div class="counter-underline"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Landing Bottom Status Strip -->
+                <div class="landing-bottom-bar">
+                    <div class="footer-left-status">
+                        <div class="hazard-marks">
+                            <span></span><span></span><span></span><span></span><span></span><span></span>
+                        </div>
+                        <div class="roles-list">Engineer<br>Builder<br>Problem Solver</div>
+                    </div>
+                    <div class="footer-right-status">
+                        <div class="wire-globe" aria-hidden="true">
+                            <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="16" cy="16" r="14.5" stroke="currentColor" stroke-width="1.1" />
+                                <ellipse cx="16" cy="16" rx="6.2" ry="14.5" stroke="currentColor" stroke-width="0.9" />
+                                <path d="M2 16H30M4.5 9.5H27.5M4.5 22.5H27.5" stroke="currentColor"
+                                    stroke-width="0.9" />
+                            </svg>
+                        </div>
+                        <div class="location-details">Based in India<br>Open to Opportunities<span
+                                class="dash-tail"><br>—</span></div>
+                    </div>
+                </div>
+            </div>
+        </div><!-- /hero-sticky /hero-stage -->
+
+        <!-- SECTION 02: ABOUT -->
+        <section id="about" class="about-section">
+            <span class="hud-plus" style="top: 0%; left: 50%; transform: translateX(-50%);">+</span>
+            <span class="hud-plus" style="top: 38%; left: 24%;">+</span>
+            <span class="hud-plus" style="top: 38%; right: 24%;">+</span>
+            <span class="hud-plus" style="bottom: 12%; right: 2%;">+</span>
+
+            <div class="about-left">
+                <div class="about-title-block">
+                    <span class="about-index">[ 02 ]</span>
+                    <h2 class="about-main-heading" data-scramble="ABOUT">ABOUT</h2>
+                    <div class="about-subheading" data-scramble="ENGINEER / MAKER / PROBLEM SOLVER">Engineer
+                        &nbsp;/&nbsp; Maker &nbsp;/&nbsp; Problem Solver</div>
+                    <div class="about-bio-card">
+                        <p>I'm Hitesh Panigrahi, an electronics and automation enthusiast, passionate about building
+                            real-world solutions with technology.</p>
+                    </div>
+                </div>
+                <div class="about-left-bottom">
+                    <div class="curiosity-tag" data-scramble="CURIOSITY BUILDS BETTER SYSTEMS.">
+                        CURIOSITY<br>BUILDS<br>BETTER<br>SYSTEMS.</div>
+                    <div class="striped-pattern">
+                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-center-clearway">
+                <div class="center-hud-brackets">
+                    <div class="bracket-tl"></div>
+                    <div class="bracket-tr"></div>
+                </div>
+            </div>
+
+            <div class="about-right">
+                <div class="hud-panel">
+                    <div class="hud-panel-title" data-scramble="QUICK FACTS">QUICK FACTS</div>
+                    <div class="facts-list">
+                        <div class="fact-row"><span class="fact-label">NAME</span><span class="fact-sep">:</span><span
+                                class="fact-val">HITESH PANIGRAHI</span></div>
+                        <div class="fact-row"><span class="fact-label">EDUCATION</span><span
+                                class="fact-sep">:</span><span class="fact-val">B.TECH (ELECTRONICS)</span></div>
+                        <div class="fact-row"><span class="fact-label">INTEREST</span><span
+                                class="fact-sep">:</span><span class="fact-val">EMBEDDED SYSTEMS, AUTOMATION</span>
+                        </div>
+                        <div class="fact-row"><span class="fact-label">LOCATION</span><span
+                                class="fact-sep">:</span><span class="fact-val">INDIA</span></div>
+                    </div>
+                </div>
+
+                <div class="hud-panel" id="skills">
+                    <div class="hud-panel-title" data-scramble="SKILLS">SKILLS</div>
+                    <div class="skills-grid">
+                        <div class="skill-pill" data-scramble="EMBEDDED C">EMBEDDED C</div>
+                        <div class="skill-pill" data-scramble="PCB DESIGN">PCB DESIGN</div>
+                        <div class="skill-pill" data-scramble="ARDUINO / STM32">ARDUINO / STM32</div>
+                        <div class="skill-pill" data-scramble="AUTOMATION">AUTOMATION</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div id="projects"></div>
+        <!-- ================= GSAP FULL-BLEED PINNED PROJECTS SECTION ================= -->
+        <section class="projects-pin-wrapper" id="projectsPinContainer">
+
+            <div class="projects-intro-panel" id="projectsIntroPanel">
+                <div class="projects-intro-header">
+                    <span>[ SECTION // 03 ]</span>
+                    <span data-scramble="SELECTED WORKS & SYSTEMS">SELECTED WORKS & SYSTEMS</span>
+                </div>
+                <!-- Giant Scrambled PROJECTS Title -->
+                <div class="projects-giant-text-wrap" id="projectsGiantText" aria-label="PROJECTS ↗"
+                    data-scramble="PROJECTS ↗">
+                    <span class="proj-pop-mask"><span class="proj-pop-glyph"
+                            style="transition-delay: 0.00s;">P</span></span>
+                    <span class="proj-pop-mask"><span class="proj-pop-glyph"
+                            style="transition-delay: 0.05s;">R</span></span>
+                    <span class="proj-pop-mask"><span class="proj-pop-glyph"
+                            style="transition-delay: 0.10s;">O</span></span>
+                    <span class="proj-pop-mask"><span class="proj-pop-glyph"
+                            style="transition-delay: 0.15s;">J</span></span>
+                    <span class="proj-pop-mask"><span class="proj-pop-glyph"
+                            style="transition-delay: 0.20s;">E</span></span>
+                    <span class="proj-pop-mask"><span class="proj-pop-glyph"
+                            style="transition-delay: 0.25s;">C</span></span>
+                    <span class="proj-pop-mask"><span class="proj-pop-glyph"
+                            style="transition-delay: 0.30s;">T</span></span>
+                    <span class="proj-pop-mask"><span class="proj-pop-glyph"
+                            style="transition-delay: 0.35s;">S</span></span>
+                    <span class="projects-arrow-up-right" style="transition-delay: 0.42s;">↗</span>
+                </div>
+                <div class="projects-intro-footer">
+                    <span data-scramble="HARDWARE & SOFTWARE ENGINEERING">HARDWARE & SOFTWARE ENGINEERING</span>
+                    <span>SCROLL TO VIEW PROJECTS &rarr;</span>
+                </div>
+            </div>
+
+            <!-- Focus-Stack Carousel Track -->
+            <div class="horizontal-flex-track" id="horizontalTrack">
+                <div class="projects-horizontal-list">
+
+                    <!-- 1. EZPLC32 -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/ezplc32.png" alt="EZPLC32" class="horizontal-card-img">
+                    </div>
+                    <!-- 2. LFR -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/LFR.png" alt="LFR" class="horizontal-card-img">
+                    </div>
+                    <!-- 3. 8DOF -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/8dof-2.png" alt="8DOF" class="horizontal-card-img">
+                    </div>
+                    <!-- 4. MATRIX -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/matrix.png" alt="MATRIX" class="horizontal-card-img">
+                    </div>
+                    <!-- 5. 16DOF -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/16dof.png" alt="16DOF" class="horizontal-card-img">
+                    </div>
+                    <!-- 6. DESKBOT -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/deskbot.png" alt="DeskBot" class="horizontal-card-img">
+                    </div>
+                    <!-- 7. SOLAR -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/SOLAR.png" alt="SOLAR" class="horizontal-card-img">
+                    </div>
+                    <!-- 8. IMM -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/IMM.png" alt="IMM" class="horizontal-card-img">
+                    </div>
+                    <!-- 9. GASINST -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/gasinst.png" alt="GASINST" class="horizontal-card-img">
+                    </div>
+                    <!-- 10. SUMO -->
+                    <div class="horizontal-project-card">
+                        <img src="asset/projects/SUMO.png" alt="SUMO" class="horizontal-card-img">
+                    </div>
+                    <!-- 11. 8051 -->
+                    <div class="horizontal-project-card" id="projects">
+                        <img src="asset/projects/8051tacho.png" alt="8051 Tacho" class="horizontal-card-img">
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Full-Width Segmented Progress HUD -->
+            <div class="projects-hud" id="projectsHud" aria-hidden="true">
+                <div class="projects-hud-info">
+                    <span class="title">[ SYSTEM PROTOCOLS ]</span>
+                    <span class="counter" id="projectsCounter">01 / 11</span>
+                </div>
+                <div class="projects-progress-track">
+                    <i class="projects-progress-fill" id="projectsProgress"></i>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 04: MARQUEE -->
+        <div class="marquee-wrapper">
+            <div class="marquee-track">
+                <div class="marquee-item"><span>SYSTEMS</span><span class="separator">✦</span><span>PROTOTYPES TO
+                        REALITY</span><span class="separator">✦</span><span>HITESH PANIGRAHI</span><span
+                        class="separator">✦</span><span>EMBEDDED & HARDWARE</span><span class="separator">✦</span></div>
+                <div class="marquee-item"><span>SYSTEMS</span><span class="separator">✦</span><span>PROTOTYPES TO
+                        REALITY</span><span class="separator">✦</span><span>HITESH PANIGRAHI</span><span
+                        class="separator">✦</span><span>EMBEDDED & HARDWARE</span><span class="separator">✦</span></div>
+            </div>
+        </div>
+
+        <!-- ================= SECTION 05: FOOTER DECK ================= -->
+        <footer id="contact" class="site-footer-card">
+            <div class="footer-deck">
+                <div class="footer-col-1">
+                    <span class="footer-tag">[ 04 ]</span>
+                    <h3 class="footer-headline" data-scramble="IDEAS. PROTOTYPES. REAL IMPACT.">
+                        IDEAS.<br>PROTOTYPES.<br>REAL IMPACT.</h3>
+                    <p>LET'S BUILD A BRIGHTER TOMORROW TOGETHER.</p>
+                </div>
+                <div class="footer-nav">
+                    <ul>
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#about">ABOUT</a></li>
+                        <li><a href="#skills">SKILLS</a></li>
+                        <li><a href="#projects">PROJECTS</a></li>
+                        <li><a href="#contact" class="active">CONTACT</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col-3">
+                    <div class="footer-col-label" data-scramble="GET IN TOUCH">GET IN TOUCH</div>
+                    <a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=hitesh.edu9%40gmail.com"
+                        target="_blank" rel="noopener noreferrer" class="footer-email-link">
+                        <span>hello@hitesh.in</span>
+                        <span class="arrow-up-right">↗</span>
+                    </a>
+                    <p>OPEN TO COLLABORATIONS, FREELANCE WORK AND EXCITING OPPORTUNITIES.</p>
+                </div>
+                <div class="footer-col-4">
+                    <div class="footer-col-label" data-scramble="FOLLOW ME">FOLLOW ME</div>
+                    <div class="footer-social-row">
+                        <a href="https://www.linkedin.com/in/hitesh-panigrahi-2244312b7/" target="_blank"
+                            rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.45a1.66 1.66 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.66 1.66 0 0 0 1.66-1.66c0-.92-.74-1.66-1.66-1.66Z" />
+                            </svg>
+                        </a>
+                        <a href="https://github.com/hiteshpanigrahi" target="_blank" rel="noopener noreferrer"
+                            aria-label="GitHub">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
+                            </svg>
+                        </a>
+                        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path
+                                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="footer-build-status">// BUILD<br>LEARN<br>CREATE<br>REPEAT</div>
+                </div>
+            </div>
+
+            <!-- Submerged Baseline -->
+            <div class="submerged-stage" id="submergedStage">
+                <div class="rolling-giant-text" id="interactiveSubmergedText" aria-label="HITESH">
+                    <span class="pop-char-mask"><span class="pop-char-glyph"
+                            style="transition-delay: 0.00s;">H</span></span>
+                    <span class="pop-char-mask"><span class="pop-char-glyph"
+                            style="transition-delay: 0.07s;">I</span></span>
+                    <span class="pop-char-mask"><span class="pop-char-glyph"
+                            style="transition-delay: 0.14s;">T</span></span>
+                    <span class="pop-char-mask"><span class="pop-char-glyph"
+                            style="transition-delay: 0.21s;">E</span></span>
+                    <span class="pop-char-mask"><span class="pop-char-glyph"
+                            style="transition-delay: 0.28s;">S</span></span>
+                    <span class="pop-char-mask"><span class="pop-char-glyph"
+                            style="transition-delay: 0.35s;">H</span></span>
+                </div>
+            </div>
+        </footer>
+
+        <div class="footer-sub-bar">
+            <div>© 2026 HITESH PANIGRAHI. ALL RIGHTS RESERVED.</div>
+            <div class="circuit-quote">SMALL CIRCUITS. BIG POSSIBILITIES.</div>
+        </div>
+    </div>
+
+    <!-- Lenis & GSAP + ScrollTrigger CDNs -->
+    <script src="https://cdn.jsdelivr.net/npm/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- ================= SCRIPT ================= -->
+    <script src="js/site.js"></script>
+
+</body>
+
+</html>
